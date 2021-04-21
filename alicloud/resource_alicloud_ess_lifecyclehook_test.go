@@ -129,7 +129,7 @@ func testAccEssLifecycleHook(common string, rand int) string {
 	resource "alicloud_vswitch" "default2" {
 		  vpc_id = "${alicloud_vpc.default.id}"
 		  cidr_block = "172.16.1.0/24"
-		  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		  vswitch_name = "${var.name}"
 	}
 	
@@ -160,7 +160,7 @@ func testAccEssLifecycleHookUpdateLifecycleTransition(common string, rand int) s
 	resource "alicloud_vswitch" "default2" {
 		  vpc_id = "${alicloud_vpc.default.id}"
 		  cidr_block = "172.16.1.0/24"
-		  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		  vswitch_name = "${var.name}"
 	}
 	
@@ -191,7 +191,7 @@ func testAccEssLifecycleHookUpdateHeartbeatTimeout(common string, rand int) stri
 	resource "alicloud_vswitch" "default2" {
 		  vpc_id = "${alicloud_vpc.default.id}"
 		  cidr_block = "172.16.1.0/24"
-		  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		  vswitch_name = "${var.name}"
 	}
 	
@@ -223,7 +223,7 @@ func testAccEssLifecycleHookUpdateNotificationMetadata(common string, rand int) 
 	resource "alicloud_vswitch" "default2" {
 		  vpc_id = "${alicloud_vpc.default.id}"
 		  cidr_block = "172.16.1.0/24"
-		  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		  vswitch_name = "${var.name}"
 	}
 	
@@ -255,7 +255,7 @@ func testAccEssLifecycleHookUpdateDefaultResult(common string, rand int) string 
 	resource "alicloud_vswitch" "default2" {
 		  vpc_id = "${alicloud_vpc.default.id}"
 		  cidr_block = "172.16.1.0/24"
-		  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		  vswitch_name = "${var.name}"
 	}
 	
@@ -299,7 +299,7 @@ func testAccEssLifecycleHookUpdateNotificationArn(common string, rand int) strin
 	resource "alicloud_vswitch" "default2" {
 		  vpc_id = "${alicloud_vpc.default.id}"
 		  cidr_block = "172.16.1.0/24"
-		  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		  vswitch_name = "${var.name}"
 	}
 	

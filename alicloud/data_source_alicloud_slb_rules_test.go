@@ -114,7 +114,7 @@ resource "alicloud_vpc" "default" {
 resource "alicloud_vswitch" "default" {
   vpc_id = "${alicloud_vpc.default.id}"
   cidr_block = "172.16.0.0/16"
-  availability_zone = "${data.alicloud_instance_types.default.instance_types.0.availability_zones.0}"
+  zone_id = "${data.alicloud_instance_types.default.instance_types.0.availability_zones.0}"
   vswitch_name = "${var.name}"
 }
 
@@ -155,7 +155,7 @@ resource "alicloud_slb_listener" "default" {
 
 resource "alicloud_instance" "default" {
   image_id = "${data.alicloud_images.default.images.0.id}"
-  availability_zone = "${data.alicloud_instance_types.default.instance_types.0.availability_zones.0}"
+  zone_id = "${data.alicloud_instance_types.default.instance_types.0.availability_zones.0}"
   instance_type = "${data.alicloud_instance_types.default.instance_types.0.id}"
   internet_charge_type = "PayByTraffic"
   system_disk_category = "cloud_efficiency"

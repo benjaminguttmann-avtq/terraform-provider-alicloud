@@ -72,7 +72,7 @@ resource "alicloud_vpc" "default" {
   cidr_block = "192.168.0.0/16"
 }
 resource "alicloud_vswitch" "default" {
-  availability_zone = data.alicloud_zones.default.ids.0
+  zone_id = data.alicloud_zones.default.ids.0
   cidr_block = "192.168.0.0/16"
   vpc_id = alicloud_vpc.default.id
 }

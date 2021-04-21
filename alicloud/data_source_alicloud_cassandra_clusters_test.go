@@ -113,7 +113,7 @@ func testAccCheckAlicloudCassandraDataSourceConfigNewCluster(rand int, attrMap m
 		  count = "${length(data.alicloud_vswitches.default.ids) > 0 ? 0 : 1}"
 		  vswitch_name = "${var.name}"
 		  vpc_id = "${data.alicloud_vpcs.default.ids.0}"
-		  availability_zone = data.alicloud_cassandra_zones.default.zones[length(data.alicloud_cassandra_zones.default.ids)-1].id
+		  zone_id = data.alicloud_cassandra_zones.default.zones[length(data.alicloud_cassandra_zones.default.ids)-1].id
 		  cidr_block = "${cidrsubnet(data.alicloud_vpcs.default.vpcs.0.cidr_block, 8, 4)}"
 		}
 		

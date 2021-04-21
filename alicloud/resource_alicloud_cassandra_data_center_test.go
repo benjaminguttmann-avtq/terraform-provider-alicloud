@@ -153,7 +153,7 @@ func CassandraDataCenterBasicdependence(name string) string {
 		  count = "${length(data.alicloud_vswitches.default_1.ids) > 0 ? 0 : 1}"
 		  name = "${var.name}"
 		  vpc_id = "${data.alicloud_vpcs.default.ids.0}"
-		  availability_zone = data.alicloud_cassandra_zones.default.zones[length(data.alicloud_cassandra_zones.default.ids)+(-1)].id
+		  zone_id = data.alicloud_cassandra_zones.default.zones[length(data.alicloud_cassandra_zones.default.ids)+(-1)].id
 		  cidr_block = "${cidrsubnet(data.alicloud_vpcs.default.vpcs.0.cidr_block, 8, 4)}"
 		}
 		data "alicloud_vswitches" "default_2" {
@@ -165,7 +165,7 @@ func CassandraDataCenterBasicdependence(name string) string {
 		  count = "${length(data.alicloud_vswitches.default_2.ids) > 0 ? 0 : 1}"
 		  name = "${var.name}_2"
 		  vpc_id = "${data.alicloud_vpcs.default.ids.0}"
-		  availability_zone = data.alicloud_cassandra_zones.default.zones[length(data.alicloud_cassandra_zones.default.ids)+(-2)].id
+		  zone_id = data.alicloud_cassandra_zones.default.zones[length(data.alicloud_cassandra_zones.default.ids)+(-2)].id
 		  cidr_block = "${cidrsubnet(data.alicloud_vpcs.default.vpcs.0.cidr_block, 8, 10)}"
 		}
 		resource "alicloud_cassandra_cluster" "default" {

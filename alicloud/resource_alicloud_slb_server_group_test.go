@@ -285,7 +285,7 @@ resource "alicloud_vpc" "default" {
 resource "alicloud_vswitch" "default" {
   vpc_id = "${alicloud_vpc.default.id}"
   cidr_block = "172.16.0.0/16"
-  availability_zone = "${data.alicloud_instance_types.default.instance_types.0.availability_zones.0}"
+  zone_id = "${data.alicloud_instance_types.default.instance_types.0.availability_zones.0}"
   name = "${var.name}"
 }
 resource "alicloud_security_group" "default" {
@@ -306,7 +306,7 @@ resource "alicloud_instance" "default" {
   security_groups = "${alicloud_security_group.default.*.id}"
   internet_charge_type = "PayByTraffic"
   internet_max_bandwidth_out = "10"
-  availability_zone = "${data.alicloud_instance_types.default.instance_types.0.availability_zones.0}"
+  zone_id = "${data.alicloud_instance_types.default.instance_types.0.availability_zones.0}"
   instance_charge_type = "PostPaid"
   system_disk_category = "cloud_efficiency"
   vswitch_id = "${alicloud_vswitch.default.id}"
@@ -319,7 +319,7 @@ resource "alicloud_instance" "new" {
   security_groups = "${alicloud_security_group.default.*.id}"
   internet_charge_type = "PayByTraffic"
   internet_max_bandwidth_out = "10"
-  availability_zone = "${data.alicloud_instance_types.new.instance_types.0.availability_zones.0}"
+  zone_id = "${data.alicloud_instance_types.new.instance_types.0.availability_zones.0}"
   instance_charge_type = "PostPaid"
   system_disk_category = "cloud_efficiency"
   vswitch_id = "${alicloud_vswitch.default.id}"
@@ -359,7 +359,7 @@ resource "alicloud_vpc" "default" {
 resource "alicloud_vswitch" "default" {
   vpc_id = "${alicloud_vpc.default.id}"
   cidr_block = "172.16.0.0/16"
-  availability_zone = "${data.alicloud_instance_types.default.instance_types.0.availability_zones.0}"
+  zone_id = "${data.alicloud_instance_types.default.instance_types.0.availability_zones.0}"
   name = "${var.name}"
 }
 resource "alicloud_security_group" "default" {
@@ -374,7 +374,7 @@ resource "alicloud_instance" "default" {
   security_groups = "${alicloud_security_group.default.*.id}"
   internet_charge_type = "PayByTraffic"
   internet_max_bandwidth_out = "10"
-  availability_zone = "${data.alicloud_instance_types.default.instance_types.0.availability_zones.0}"
+  zone_id = "${data.alicloud_instance_types.default.instance_types.0.availability_zones.0}"
   instance_charge_type = "PostPaid"
   system_disk_category = "cloud_efficiency"
   vswitch_id = "${alicloud_vswitch.default.id}"
@@ -409,7 +409,7 @@ resource "alicloud_vpc" "default" {
 resource "alicloud_vswitch" "default" {
   vpc_id = "${alicloud_vpc.default.id}"
   cidr_block = "172.16.0.0/16"
-  availability_zone = "${data.alicloud_instance_types.default.instance_types.0.availability_zones.0}"
+  zone_id = "${data.alicloud_instance_types.default.instance_types.0.availability_zones.0}"
   name = "${var.name}"
 }
 resource "alicloud_security_group" "default" {
@@ -424,7 +424,7 @@ resource "alicloud_instance" "default" {
   security_groups = "${alicloud_security_group.default.*.id}"
   internet_charge_type = "PayByTraffic"
   internet_max_bandwidth_out = "10"
-  availability_zone = "${data.alicloud_instance_types.default.instance_types.0.availability_zones.0}"
+  zone_id = "${data.alicloud_instance_types.default.instance_types.0.availability_zones.0}"
   instance_charge_type = "PostPaid"
   system_disk_category = "cloud_efficiency"
   vswitch_id = "${alicloud_vswitch.default.id}"

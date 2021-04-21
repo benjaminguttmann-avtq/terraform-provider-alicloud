@@ -702,14 +702,14 @@ func resourceCSKubernetesConfigDependence(name string) string {
 	}
 	
 	data "alicloud_instance_types" "default" {
-		availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		cpu_core_count = 2
 		memory_size = 4
 		kubernetes_node_role = "Master"
 	}
 	
 	data "alicloud_instance_types" "default1" {
-		availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		instance_type_family = "ecs.c6"
 		cpu_core_count = 2
 		memory_size = 4
@@ -727,7 +727,7 @@ func resourceCSKubernetesConfigDependence(name string) string {
 	  name = "${var.name}"
 	  vpc_id = "${alicloud_vpc.default.id}"
 	  cidr_block = "10.1.1.0/24"
-	  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+	  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 	}
 	
 	resource "alicloud_db_instance" "default" {
@@ -761,38 +761,38 @@ func resourceCSKubernetesConfigDependence_multiAZ(name string) string {
 	}
 
 	data "alicloud_instance_types" "default_m1" {
-		availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		cpu_core_count = 2
 		memory_size = 4
 		kubernetes_node_role = "Master"
 	}
 	data "alicloud_instance_types" "default_m2" {
-		availability_zone = "${lookup(data.alicloud_zones.default.zones[length(data.alicloud_zones.default.zones)-1], "id")}"
+		zone_id = "${lookup(data.alicloud_zones.default.zones[length(data.alicloud_zones.default.zones)-1], "id")}"
 		cpu_core_count = 2
 		memory_size = 4
 		kubernetes_node_role = "Master"
 	}
 	data "alicloud_instance_types" "default_m3" {
-		availability_zone = "${lookup(data.alicloud_zones.default.zones[length(data.alicloud_zones.default.zones)-2], "id")}"
+		zone_id = "${lookup(data.alicloud_zones.default.zones[length(data.alicloud_zones.default.zones)-2], "id")}"
 		cpu_core_count = 2
 		memory_size = 4
 		kubernetes_node_role = "Master"
 	}
 
 	data "alicloud_instance_types" "default_w1" {
-		availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		cpu_core_count = 2
 		memory_size = 4
 		kubernetes_node_role = "Worker"
 	}
 	data "alicloud_instance_types" "default_w2" {
-		availability_zone = "${lookup(data.alicloud_zones.default.zones[length(data.alicloud_zones.default.zones)-1], "id")}"
+		zone_id = "${lookup(data.alicloud_zones.default.zones[length(data.alicloud_zones.default.zones)-1], "id")}"
 		cpu_core_count = 2
 		memory_size = 4
 		kubernetes_node_role = "Worker"
 	}
 	data "alicloud_instance_types" "default_w3" {
-		availability_zone = "${lookup(data.alicloud_zones.default.zones[length(data.alicloud_zones.default.zones)-2], "id")}"
+		zone_id = "${lookup(data.alicloud_zones.default.zones[length(data.alicloud_zones.default.zones)-2], "id")}"
 		cpu_core_count = 2
 		memory_size = 4
 		kubernetes_node_role = "Worker"
@@ -806,21 +806,21 @@ func resourceCSKubernetesConfigDependence_multiAZ(name string) string {
 	  name = "${var.name}"
 	  vpc_id = "${alicloud_vpc.default.id}"
 	  cidr_block = "10.1.1.0/24"
-	  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+	  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 	}
 
 	resource "alicloud_vswitch" "default2" {
 	  name = "${var.name}"
 	  vpc_id = "${alicloud_vpc.default.id}"
 	  cidr_block = "10.1.2.0/24"
-	  availability_zone = "${lookup(data.alicloud_zones.default.zones[length(data.alicloud_zones.default.zones)-1], "id")}"
+	  zone_id = "${lookup(data.alicloud_zones.default.zones[length(data.alicloud_zones.default.zones)-1], "id")}"
 	}
 
 	resource "alicloud_vswitch" "default3" {
 	  name = "${var.name}"
 	  vpc_id = "${alicloud_vpc.default.id}"
 	  cidr_block = "10.1.3.0/24"
-	  availability_zone = "${lookup(data.alicloud_zones.default.zones[length(data.alicloud_zones.default.zones)-2], "id")}"
+	  zone_id = "${lookup(data.alicloud_zones.default.zones[length(data.alicloud_zones.default.zones)-2], "id")}"
 	}
 
 	resource "alicloud_nat_gateway" "default" {

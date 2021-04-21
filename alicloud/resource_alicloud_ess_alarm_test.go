@@ -309,7 +309,7 @@ func resourceEssAlarmConfigDependence(name string) string {
 		name = "${var.name}_bar"
 		  vpc_id = "${alicloud_vpc.default.id}"
 		  cidr_block = "172.16.1.0/24"
-		  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 	}
 
 	resource "alicloud_ess_scaling_group" "default" {

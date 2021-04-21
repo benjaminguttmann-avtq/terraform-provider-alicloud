@@ -191,7 +191,7 @@ data "alicloud_zones" "default" {
 	available_resource_creation= "VSwitch"
 }
 data "alicloud_instance_types" "default" {
- 	availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+ 	zone_id = "${data.alicloud_zones.default.zones.0.id}"
 }
 data "alicloud_images" "default" {
 	name_regex = "^ubuntu_18\\w{1,5}[64]{1}.*"
@@ -210,7 +210,7 @@ resource "alicloud_vpc" "default" {
 resource "alicloud_vswitch" "default" {
 	vpc_id = "${alicloud_vpc.default.id}"
 	cidr_block = "10.1.1.0/24"
-	availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+	zone_id = "${data.alicloud_zones.default.zones.0.id}"
 	vswitch_name = "${var.name}"
 }
 
@@ -274,7 +274,7 @@ resource "alicloud_vpc" "default" {
 resource "alicloud_vswitch" "default" {
   vpc_id = "${alicloud_vpc.default.id}"
   cidr_block = "10.1.1.0/24"
-  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+  zone_id = "${data.alicloud_zones.default.zones.0.id}"
   vswitch_name = "${var.name}"
 }
 
@@ -336,7 +336,7 @@ resource "alicloud_vpc" "default" {
 resource "alicloud_vswitch" "default" {
   vpc_id = "${alicloud_vpc.default.id}"
   cidr_block = "10.1.1.0/24"
-  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+  zone_id = "${data.alicloud_zones.default.zones.0.id}"
   vswitch_name = "${var.name}"
 }
 
@@ -373,7 +373,7 @@ resource "alicloud_vpc" "default" {
 resource "alicloud_vswitch" "default" {
     vswitch_name = "${var.name}"
     cidr_block = "10.1.1.0/24"
-    availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+    zone_id = "${data.alicloud_zones.default.zones.0.id}"
     vpc_id = "${alicloud_vpc.default.id}"
 }
 

@@ -179,7 +179,7 @@ data "alicloud_zones" "default" {
 resource "alicloud_vswitch" "default" {
     vswitch_name = "${var.name}"
     cidr_block = "192.168.0.0/24"
-    availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+    zone_id = "${data.alicloud_zones.default.zones.0.id}"
     vpc_id = "${alicloud_vpc.default.id}"
 }
 
@@ -201,7 +201,7 @@ resource "alicloud_network_interface" "default" {
 }
 
 data "alicloud_instance_types" "default" {
-  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+  zone_id = "${data.alicloud_zones.default.zones.0.id}"
   eni_amount = 2
 }
 
@@ -212,7 +212,7 @@ data "alicloud_images" "default" {
 }
 
 resource "alicloud_instance" "default" {
-    availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+    zone_id = "${data.alicloud_zones.default.zones.0.id}"
     security_groups = ["${alicloud_security_group.default.id}"]
     instance_type = "${data.alicloud_instance_types.default.instance_types.0.id}"
     system_disk_category = "cloud_efficiency"

@@ -461,7 +461,7 @@ func resourceEdasK8sApplicationConfigDependence(name string) string {
 		}
 		
 		data "alicloud_instance_types" "default" {
-		  availability_zone = data.alicloud_zones.default.zones.0.id
+		  zone_id = data.alicloud_zones.default.zones.0.id
 		  cpu_core_count = 2
 		  memory_size = 4
 		  kubernetes_node_role = "Worker"
@@ -476,7 +476,7 @@ func resourceEdasK8sApplicationConfigDependence(name string) string {
 		  name = var.name
 		  vpc_id = alicloud_vpc.default.id
 		  cidr_block = "10.1.1.0/24"
-		  availability_zone = data.alicloud_zones.default.zones.0.id
+		  zone_id = data.alicloud_zones.default.zones.0.id
 		}
 		
 		resource "alicloud_cs_managed_kubernetes" "default" {

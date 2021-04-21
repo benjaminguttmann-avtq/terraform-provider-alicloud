@@ -196,7 +196,7 @@ func testAccCheckAlicloudInstancesDataSourceConfig(rand int, attrMap map[string]
 	}
 
 	resource "alicloud_instance" "default" {
-		availability_zone = "${data.alicloud_instance_types.default.instance_types.0.availability_zones.0}"
+		zone_id = "${data.alicloud_instance_types.default.instance_types.0.availability_zones.0}"
 		vswitch_id = "${alicloud_vswitch.default.id}"
 		private_ip = "172.16.0.10"
 		image_id = "${data.alicloud_images.default.images.0.id}"
@@ -276,7 +276,7 @@ func testAccCheckAlicloudInstancesDataSourceConfigWithTag(rand int, attrMap map[
 	}
 
 	resource "alicloud_instance" "default" {
-		availability_zone = "${data.alicloud_instance_types.default.instance_types.0.availability_zones.0}"
+		zone_id = "${data.alicloud_instance_types.default.instance_types.0.availability_zones.0}"
 		vswitch_id = "${alicloud_vswitch.default.id}"
 		private_ip = "172.16.0.10"
 		image_id = "${data.alicloud_images.default.images.0.id}"

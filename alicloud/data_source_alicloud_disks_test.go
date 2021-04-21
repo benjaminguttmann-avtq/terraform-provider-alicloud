@@ -162,7 +162,7 @@ data "alicloud_zones" "default" {
 }
 
 resource "alicloud_disk" "default" {
-	availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+	zone_id = "${data.alicloud_zones.default.zones.0.id}"
 	category = "cloud_efficiency"
 	name = "${var.name}"
 	description = "${var.name}_description"
@@ -199,7 +199,7 @@ variable "name" {
 }
 
 resource "alicloud_disk" "default" {
-	availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+	zone_id = "${data.alicloud_zones.default.zones.0.id}"
 	category = "cloud_efficiency"
 	name = "${var.name}"
 	description = "${var.name}_description"

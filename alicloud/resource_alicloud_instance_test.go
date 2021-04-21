@@ -1501,7 +1501,7 @@ resource "alicloud_vpc" "default" {
 resource "alicloud_vswitch" "default" {
   vpc_id            = "${alicloud_vpc.default.id}"
   cidr_block        = "172.16.0.0/24"
-  availability_zone = "${data.alicloud_instance_types.default.instance_types.0.availability_zones.0}"
+  zone_id = "${data.alicloud_instance_types.default.instance_types.0.availability_zones.0}"
   name              = "${var.name}"
 }
 resource "alicloud_security_group" "default" {
@@ -1606,7 +1606,7 @@ func resourceInstanceTypeConfigDependence(name string) string {
 	resource "alicloud_vswitch" "default" {
 	  vpc_id            = "${alicloud_vpc.default.id}"
 	  cidr_block        = "172.16.0.0/24"
-	  availability_zone = "${reverse(data.alicloud_zones.default.zones).1.id}"
+	  zone_id = "${reverse(data.alicloud_zones.default.zones).1.id}"
 	  name              = "${var.name}"
 	}
 	resource "alicloud_security_group" "default" {
@@ -1629,28 +1629,28 @@ func resourceInstanceTypeConfigDependence(name string) string {
 	}
 
 	data "alicloud_instance_types" "new1" {
-		availability_zone = "${alicloud_vswitch.default.availability_zone}"
+		zone_id = "${alicloud_vswitch.default.availability_zone}"
 		cpu_core_count = 1
 		memory_size = 0.5
 		instance_type_family = "ecs.t5"
 	}
 
 	data "alicloud_instance_types" "new2" {
-		availability_zone = "${alicloud_vswitch.default.availability_zone}"
+		zone_id = "${alicloud_vswitch.default.availability_zone}"
 		cpu_core_count = 1
 		memory_size = 1
 		instance_type_family = "ecs.t5"
 	}
 
 	data "alicloud_instance_types" "new3" {
-		availability_zone = "${alicloud_vswitch.default.availability_zone}"
+		zone_id = "${alicloud_vswitch.default.availability_zone}"
 		cpu_core_count = 1
 		memory_size = 2
 		instance_type_family = "ecs.t5"
 	}
 
 	data "alicloud_instance_types" "new4" {
-		availability_zone = "${alicloud_vswitch.default.availability_zone}"
+		zone_id = "${alicloud_vswitch.default.availability_zone}"
 		cpu_core_count = 2
 		memory_size = 4
 		instance_type_family = "ecs.t5"

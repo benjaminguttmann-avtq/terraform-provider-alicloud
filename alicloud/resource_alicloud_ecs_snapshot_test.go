@@ -219,7 +219,7 @@ data "alicloud_zones" default {
 }
 
 data "alicloud_instance_types" "default" {
-	availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+	zone_id = "${data.alicloud_zones.default.zones.0.id}"
   	cpu_core_count    = 1
 	memory_size       = 2
 }
@@ -242,7 +242,7 @@ resource "alicloud_security_group" "default" {
 resource "alicloud_disk" "default" {
   count = "2"
   name = "${var.name}"
-  availability_zone = data.alicloud_instance_types.default.instance_types.0.availability_zones.0
+  zone_id = data.alicloud_instance_types.default.instance_types.0.availability_zones.0
   category          = "cloud_efficiency"
   size              = "20"
 }
@@ -252,7 +252,7 @@ data "alicloud_images" "default" {
 }
 
 resource "alicloud_instance" "default" {
-  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+  zone_id = "${data.alicloud_zones.default.zones.0.id}"
   instance_name   = "${var.name}"
   host_name       = "tf-testAcc"
   image_id        = data.alicloud_images.default.images.0.id

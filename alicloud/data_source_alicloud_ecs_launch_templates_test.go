@@ -128,7 +128,7 @@ func dataSourceEcsLaunchTemplatesDependence(name string) string {
 		  available_resource_creation = "VSwitch"
 		}
 		data "alicloud_instance_types" "default" {
-		  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		}
 		data "alicloud_images" "default" {
 		  name_regex  = "^ubuntu_18.*64"

@@ -94,7 +94,7 @@ func dataSourceOtsInstanceAttachmentsConfigDependence(name string) string {
 	  vpc_id = "${alicloud_vpc.foo.id}"
 	  name = "${var.name}"
 	  cidr_block = "172.16.1.0/24"
-	  availability_zone = "${data.alicloud_zones.foo.zones.0.id}"
+	  zone_id = "${data.alicloud_zones.foo.zones.0.id}"
 	}
 	resource "alicloud_ots_instance_attachment" "foo" {
 	  instance_name = "${alicloud_ots_instance.foo.name}"

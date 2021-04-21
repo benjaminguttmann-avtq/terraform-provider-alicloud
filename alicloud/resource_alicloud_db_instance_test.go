@@ -547,7 +547,7 @@ resource "alicloud_security_group" "default" {
 resource "alicloud_vswitch" "slave_a" {
   vpc_id            = "${alicloud_vpc.default.id}"
   cidr_block        = "172.16.1.0/24"
-  availability_zone = "${data.alicloud_db_instance_classes.default.instance_classes.0.zone_ids.1.sub_zone_ids.0}"
+  zone_id = "${data.alicloud_db_instance_classes.default.instance_classes.0.zone_ids.1.sub_zone_ids.0}"
   name              = "tf-testaccvswitchslave"
 }
 `, RdsCommonTestCase, name)
@@ -643,13 +643,13 @@ resource "alicloud_security_group" "default" {
 resource "alicloud_vswitch" "slave_a" {
   vpc_id            = "${alicloud_vpc.default.id}"
   cidr_block        = "172.16.1.0/24"
-  availability_zone = "${data.alicloud_db_instance_classes.default.instance_classes.0.zone_ids.1.sub_zone_ids.0}"
+  zone_id = "${data.alicloud_db_instance_classes.default.instance_classes.0.zone_ids.1.sub_zone_ids.0}"
   name              = "tf-testaccvswitcha"
 }
 resource "alicloud_vswitch" "slave_b" {
   vpc_id            = "${alicloud_vpc.default.id}"
   cidr_block        = "172.16.2.0/24"
-  availability_zone = "${data.alicloud_db_instance_classes.default.instance_classes.0.zone_ids.2.sub_zone_ids.0}"
+  zone_id = "${data.alicloud_db_instance_classes.default.instance_classes.0.zone_ids.2.sub_zone_ids.0}"
   name              = "tf-testaccvswitchb"
 }
 
@@ -1145,7 +1145,7 @@ resource "alicloud_vpc" "default" {
 resource "alicloud_vswitch" "default" {
   vpc_id            = "${alicloud_vpc.default.id}"
   cidr_block        = "172.16.0.0/24"
-  availability_zone = "${data.alicloud_db_instance_classes.default.instance_classes.0.zone_ids.0.sub_zone_ids.0}"
+  zone_id = "${data.alicloud_db_instance_classes.default.instance_classes.0.zone_ids.0.sub_zone_ids.0}"
   name              = "${var.name}"
 }
 

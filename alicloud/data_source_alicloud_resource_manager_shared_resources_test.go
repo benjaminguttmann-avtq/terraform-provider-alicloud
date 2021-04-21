@@ -83,7 +83,7 @@ resource "alicloud_vpc" "example" {
   cidr_block = "192.168.0.0/16"
 }
 resource "alicloud_vswitch" "example" {
-  availability_zone = data.alicloud_zones.example.ids.0
+  zone_id = data.alicloud_zones.example.ids.0
   cidr_block = "192.168.0.0/16"
   vpc_id = alicloud_vpc.example.id
 }

@@ -125,7 +125,7 @@ func resourceOtsInstanceAttachmentConfigDependence(name string) string {
 	  vpc_id = "${alicloud_vpc.default.id}"
 	  name = "${var.name}"
 	  cidr_block = "172.16.1.0/24"
-	  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+	  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 	}
 	`, name, string(OtsCapacity))
 }
@@ -155,7 +155,7 @@ func resourceOtsInstanceAttachmentConfigDependenceHighperformance(name string) s
 	  vpc_id = "${alicloud_vpc.default.id}"
 	  name = "${var.name}"
 	  cidr_block = "172.16.1.0/24"
-	  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+	  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 	}
 	`, name, string(OtsHighPerformance))
 }

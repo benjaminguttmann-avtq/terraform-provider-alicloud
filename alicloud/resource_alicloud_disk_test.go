@@ -292,7 +292,7 @@ data "alicloud_zones" "default" {
 }
 
 resource "alicloud_disk" "default" {
-	availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+	zone_id = "${data.alicloud_zones.default.zones.0.id}"
   	size = "50"
 	resource_group_id = "%s"
 }
@@ -307,7 +307,7 @@ data "alicloud_zones" "default" {
 
 
 resource "alicloud_disk" "default" {
-	availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+	zone_id = "${data.alicloud_zones.default.zones.0.id}"
   	size = "500"
 	resource_group_id = "%s"
 }
@@ -323,7 +323,7 @@ data "alicloud_zones" "default" {
 
 
 resource "alicloud_disk" "default" {
-	availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+	zone_id = "${data.alicloud_zones.default.zones.0.id}"
   	size = "500"
     category = "cloud_essd"
     performance_level = "PL2"
@@ -345,7 +345,7 @@ resource "alicloud_kms_key" "key" {
 }
 
 resource "alicloud_disk" "default" {
-	availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+	zone_id = "${data.alicloud_zones.default.zones.0.id}"
   	size = "500"
 	encrypted = true
 	kms_key_id = "${alicloud_kms_key.key.id}"
@@ -366,7 +366,7 @@ variable "name" {
 }
 
 resource "alicloud_disk" "default" {
-	availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+	zone_id = "${data.alicloud_zones.default.zones.0.id}"
   	size = "500"
 	name = "${var.name}"
 	resource_group_id = "%s"
@@ -386,7 +386,7 @@ variable "name" {
 }
 
 resource "alicloud_disk" "default" {
-	availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+	zone_id = "${data.alicloud_zones.default.zones.0.id}"
   	size = "500"
 	name = "${var.name}"
 	description = "${var.name}_description"
@@ -407,7 +407,7 @@ variable "name" {
 }
 
 resource "alicloud_disk" "default" {
-	availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+	zone_id = "${data.alicloud_zones.default.zones.0.id}"
   	size = "500"
 	name = "${var.name}"
 	description = "${var.name}_description"
@@ -435,7 +435,7 @@ variable "name" {
 }
 
 resource "alicloud_disk" "default" {
-	availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+	zone_id = "${data.alicloud_zones.default.zones.0.id}"
   	size = "500"
 	name = "${var.name}"
 	description = "${var.name}_description"
@@ -464,7 +464,7 @@ variable "name" {
 }
 
 resource "alicloud_disk" "default" {
-	availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+	zone_id = "${data.alicloud_zones.default.zones.0.id}"
   	size = "500"
 	name = "${var.name}"
 	description = "${var.name}_description"
@@ -494,7 +494,7 @@ variable "name" {
 }
 
 resource "alicloud_disk" "default" {
-	availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+	zone_id = "${data.alicloud_zones.default.zones.0.id}"
   	size = "500"
 	name = "${var.name}"
 	description = "${var.name}_description"
@@ -524,7 +524,7 @@ variable "name" {
 }
 
 resource "alicloud_disk" "default" {
-	availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+	zone_id = "${data.alicloud_zones.default.zones.0.id}"
   	size = "500"
 	name = "${var.name}_all"
 	description = "nothing"
@@ -550,7 +550,7 @@ variable "name" {
 
 resource "alicloud_disk" "default" {
 	count = "5"
-	availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+	zone_id = "${data.alicloud_zones.default.zones.0.id}"
   	size = "50"
 	name = "${var.name}_multi"
 	description = "nothing"

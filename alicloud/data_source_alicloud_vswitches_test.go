@@ -158,7 +158,7 @@ resource "alicloud_vswitch" "default" {
   vswitch_name = "${var.name}"
   cidr_block = "172.16.0.0/24"
   vpc_id = "${alicloud_vpc.default.id}"
-  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+  zone_id = "${data.alicloud_zones.default.zones.0.id}"
   tags 		= {
 		Created = "TF"
 		For 	= "acceptance test"

@@ -559,7 +559,7 @@ func testAccEssScalingGroup(common string, rand int) string {
 	resource "alicloud_vswitch" "default2" {
 		  vpc_id = "${alicloud_vpc.default.id}"
 		  cidr_block = "172.16.1.0/24"
-		  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		  name = "${var.name}-bar"
 	}
 	
@@ -584,7 +584,7 @@ func testAccEssScalingGroupUpdateMaxSize(common string, rand int) string {
 	resource "alicloud_vswitch" "default2" {
 		  vpc_id = "${alicloud_vpc.default.id}"
 		  cidr_block = "172.16.1.0/24"
-		  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		  name = "${var.name}-bar"
 	}
 	
@@ -609,7 +609,7 @@ func testAccEssScalingGroupUpdateDesiredCapacity(common string, rand int) string
 	resource "alicloud_vswitch" "default2" {
 		  vpc_id = "${alicloud_vpc.default.id}"
 		  cidr_block = "172.16.1.0/24"
-		  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		  name = "${var.name}-bar"
 	}
 	
@@ -634,7 +634,7 @@ func testAccEssScalingGroupUpdateScalingGroupName(common string, rand int) strin
 	resource "alicloud_vswitch" "default2" {
 		  vpc_id = "${alicloud_vpc.default.id}"
 		  cidr_block = "172.16.1.0/24"
-		  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		  name = "${var.name}-bar"
 	}
 	
@@ -659,7 +659,7 @@ func testAccEssScalingGroupUpdateRemovalPolicies(common string, rand int) string
 	resource "alicloud_vswitch" "default2" {
 		  vpc_id = "${alicloud_vpc.default.id}"
 		  cidr_block = "172.16.1.0/24"
-		  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		  name = "${var.name}-bar"
 	}
 	
@@ -684,7 +684,7 @@ func testAccEssScalingGroupUpdateDefaultCooldown(common string, rand int) string
 	resource "alicloud_vswitch" "default2" {
 		  vpc_id = "${alicloud_vpc.default.id}"
 		  cidr_block = "172.16.1.0/24"
-		  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		  name = "${var.name}-bar"
 	}
 	
@@ -709,7 +709,7 @@ func testAccEssScalingGroupUpdateMinSize(common string, rand int) string {
 	resource "alicloud_vswitch" "default2" {
 		  vpc_id = "${alicloud_vpc.default.id}"
 		  cidr_block = "172.16.1.0/24"
-		  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		  name = "${var.name}-bar"
 	}
 	
@@ -733,7 +733,7 @@ func testAccEssScalingGroupVpc(common string, rand int) string {
 	resource "alicloud_vswitch" "default2" {
 		  vpc_id = "${alicloud_vpc.default.id}"
 		  cidr_block = "172.16.1.0/24"
-		  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		  name = "${var.name}-bar"
 	}
 	
@@ -758,7 +758,7 @@ func testAccEssScalingGroupVpcUpdateMaxSize(common string, rand int) string {
 	resource "alicloud_vswitch" "default2" {
 		  vpc_id = "${alicloud_vpc.default.id}"
 		  cidr_block = "172.16.1.0/24"
-		  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		  name = "${var.name}-bar"
 	}
 	
@@ -783,7 +783,7 @@ func testAccEssScalingGroupVpcUpdateScalingGroupName(common string, rand int) st
 	resource "alicloud_vswitch" "default2" {
 		  vpc_id = "${alicloud_vpc.default.id}"
 		  cidr_block = "172.16.1.0/24"
-		  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		  name = "${var.name}-bar"
 	}
 	
@@ -808,7 +808,7 @@ func testAccEssScalingGroupVpcUpdateRemovalPolicies(common string, rand int) str
 	resource "alicloud_vswitch" "default2" {
 		  vpc_id = "${alicloud_vpc.default.id}"
 		  cidr_block = "172.16.1.0/24"
-		  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		  name = "${var.name}-bar"
 	}
 	
@@ -833,7 +833,7 @@ func testAccEssScalingGroupVpcUpdateDefaultCooldown(common string, rand int) str
 	resource "alicloud_vswitch" "default2" {
 		  vpc_id = "${alicloud_vpc.default.id}"
 		  cidr_block = "172.16.1.0/24"
-		  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		  name = "${var.name}-bar"
 	}
 	
@@ -858,7 +858,7 @@ func testAccEssScalingGroupVpcUpdateMinSize(common string, rand int) string {
 	resource "alicloud_vswitch" "default2" {
 		  vpc_id = "${alicloud_vpc.default.id}"
 		  cidr_block = "172.16.1.0/24"
-		  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		  name = "${var.name}-bar"
 	}
 	
@@ -1154,7 +1154,7 @@ func testAccEssScalingGroupModifyVSwitchIds(common string, rand int) string {
 	resource "alicloud_vswitch" "default2" {
 		  vpc_id = "${alicloud_vpc.default.id}"
 		  cidr_block = "172.16.1.0/24"
-		  availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+		  zone_id = "${data.alicloud_zones.default.zones.0.id}"
 		  name = "${var.name}-bar"
 	}
 
@@ -1179,7 +1179,7 @@ func testAccEssScalingGroupCostOptimized(common string, rand int) string {
     resource "alicloud_vswitch" "default2" {
           vpc_id = "${alicloud_vpc.default.id}"
           cidr_block = "172.16.1.0/24"
-          availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+          zone_id = "${data.alicloud_zones.default.zones.0.id}"
           name = "${var.name}-bar"
     }
     
@@ -1207,7 +1207,7 @@ func testAccEssScalingGroupSpotInstanceRemedy(common string, rand int) string {
     resource "alicloud_vswitch" "default2" {
           vpc_id = "${alicloud_vpc.default.id}"
           cidr_block = "172.16.1.0/24"
-          availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+          zone_id = "${data.alicloud_zones.default.zones.0.id}"
           name = "${var.name}-bar"
     }
     
@@ -1236,7 +1236,7 @@ func testAccEssScalingGroupDeletionProtection(common string, rand int) string {
     resource "alicloud_vswitch" "default2" {
           vpc_id = "${alicloud_vpc.default.id}"
           cidr_block = "172.16.1.0/24"
-          availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+          zone_id = "${data.alicloud_zones.default.zones.0.id}"
           name = "${var.name}-bar"
     }
     
@@ -1266,7 +1266,7 @@ func testAccEssScalingGroupOnDemandBaseCapacity(common string, rand int) string 
     resource "alicloud_vswitch" "default2" {
           vpc_id = "${alicloud_vpc.default.id}"
           cidr_block = "172.16.1.0/24"
-          availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+          zone_id = "${data.alicloud_zones.default.zones.0.id}"
           name = "${var.name}-bar"
     }
     
@@ -1296,7 +1296,7 @@ func testAccEssScalingGroupOnDemandPercentageAboveBaseCapacity(common string, ra
     resource "alicloud_vswitch" "default2" {
           vpc_id = "${alicloud_vpc.default.id}"
           cidr_block = "172.16.1.0/24"
-          availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+          zone_id = "${data.alicloud_zones.default.zones.0.id}"
           name = "${var.name}-bar"
     }
     
@@ -1326,7 +1326,7 @@ func testAccEssScalingGroupSpotInstancePools(common string, rand int) string {
     resource "alicloud_vswitch" "default2" {
           vpc_id = "${alicloud_vpc.default.id}"
           cidr_block = "172.16.1.0/24"
-          availability_zone = "${data.alicloud_zones.default.zones.0.id}"
+          zone_id = "${data.alicloud_zones.default.zones.0.id}"
           name = "${var.name}-bar"
     }
     
