@@ -11,7 +11,7 @@ resource "alicloud_vswitch" "default" {
   name              = "example-ots-table"
   cidr_block        = "172.16.1.0/24"
   vpc_id            = alicloud_vpc.default.id
-  availability_zone = data.alicloud_zones.default.zones[0].id
+  zone_id = data.alicloud_zones.default.zones[0].id
 }
 
 resource "alicloud_ots_instance" "default" {

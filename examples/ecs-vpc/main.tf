@@ -20,7 +20,7 @@ resource "alicloud_vpc" "vpc" {
 // VSwitch Resource for Module
 resource "alicloud_vswitch" "vswitch" {
   count             = var.vswitch_id == "" ? 1 : 0
-  availability_zone = data.alicloud_zones.default.zones[0].id
+  zone_id = data.alicloud_zones.default.zones[0].id
   name              = var.vswitch_name
   cidr_block        = var.vswitch_cidr
   vpc_id            = alicloud_vpc.vpc.id

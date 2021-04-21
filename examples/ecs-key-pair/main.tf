@@ -17,7 +17,7 @@ resource "alicloud_vpc" "main" {
 resource "alicloud_vswitch" "main" {
   vpc_id            = alicloud_vpc.main.id
   cidr_block        = "10.1.1.0/24"
-  availability_zone = data.alicloud_zones.default.zones[0].id
+  zone_id = data.alicloud_zones.default.zones[0].id
 }
 
 resource "alicloud_security_group" "group" {

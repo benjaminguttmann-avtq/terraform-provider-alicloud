@@ -9,7 +9,7 @@ data "alicloud_zones" "main" {
 }
 
 data "alicloud_instance_types" "main" {
-  availability_zone = data.alicloud_zones.main.zones[0].id
+  zone_id = data.alicloud_zones.main.zones[0].id
   cpu_core_count    = var.cpu_core_count
   memory_size       = var.memory_size
 }
@@ -22,7 +22,7 @@ resource "alicloud_vpc" "main" {
 resource "alicloud_vswitch" "main" {
   vpc_id            = alicloud_vpc.main.id
   cidr_block        = var.vswitch_cidr
-  availability_zone = data.alicloud_zones.main.zones[0].id
+  zone_id = data.alicloud_zones.main.zones[0].id
 
   depends_on = [alicloud_vpc.main]
 }

@@ -10,7 +10,7 @@ resource "alicloud_vpc" "default" {
 resource "alicloud_vswitch" "default" {
   vpc_id            = alicloud_vpc.default.id
   cidr_block        = var.vswitch_cidr
-  availability_zone = data.alicloud_zones.default.zones[0].id
+  zone_id = data.alicloud_zones.default.zones[0].id
 }
 
 resource "alicloud_route_entry" "default" {
